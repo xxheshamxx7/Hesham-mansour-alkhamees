@@ -1,35 +1,6 @@
 high_score_board = []  
 
 def record_game(player, *scores, bonus=0, multiplier=1.0):
-    """
-    Record a game for a player.
-
-    Parameters:
-        player (str): Player name (positional argument).
-        *scores: Variable number of round scores.
-        bonus (int, optional): Extra points added to raw total. Default 0.
-        multiplier (float, optional): Multiplier applied after bonus. Default 1.0.
-
-    Returns:
-        tuple: (player, rounds, total, status)
-            - player: name
-            - rounds: number of valid scores
-            - total: final score (int)
-            - status: "no rounds played", "negative score not allowed",
-                    "high score!", or "rank N"
-
-    Rules:
-        - If no scores provided -> (player, 0, 0, "no rounds played")
-        - If any negative score -> (player, 0, 0, "negative score not allowed")
-        - Otherwise:
-            raw_total = sum(scores)
-            total = int((raw_total + bonus) * multiplier)
-            rounds = len(scores)
-            Append (player, total) to global high_score_board
-            Determine rank by sorting board descending by total:
-                rank 1 -> status = "high score!"
-                else   -> status = f"rank {rank}"
-    """
     if len(scores) == 0:
         return (player, 0, 0, "no rounds played")
     
